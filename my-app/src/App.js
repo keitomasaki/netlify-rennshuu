@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <p>masaki no site desu</p>
+      <p>正木のサイトです。ツールを開発しています</p>
     </div>
   );
 }
