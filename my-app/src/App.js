@@ -59,7 +59,6 @@ const App = () => {
         setMoney(value);
       }
     }
-    setMoney(value);
   };
 
   const determineMoney = () => {
