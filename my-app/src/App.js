@@ -33,32 +33,37 @@ const App = () => {
     const FIRST_STR = e.target.value.slice(0, 1);
     const { value } = e.target;
 
-    if (value.length > MAX_STR_LENGTH) {
-      alert(messages.OVER_MAX_LENGTH(MAX_STR_LENGTH));
-      return null;
-    }
-    if (IS_ZERO.test(FIRST_STR) && value[0] !== undefined) {
-      alert("先頭に０を指定することはできません");
-      return null;
-    }
-    if (!IS_ONLY_NUMBER_AND_FULL_WIDTH_AND_HALF_WIDTH.test(LAST_STR)) {
-      alert("数字が使われていません");
-      return null;
-    }
+    // if (value.length > MAX_STR_LENGTH) {
+    //   alert(messages.OVER_MAX_LENGTH(MAX_STR_LENGTH));
+    //   return null;
+    // }
+    // if (IS_ZERO.test(FIRST_STR) && value[0] !== undefined) {
+    //   alert("先頭に０を指定することはできません");
+    //   return null;
+    // }
+    // if (!IS_ONLY_NUMBER_AND_FULL_WIDTH_AND_HALF_WIDTH.test(LAST_STR)) {
+    //   alert("数字が使われていません");
+    //   return null;
+    // }
 
-    if (IS_ONLY_NUMBER_AND_HALF_WIDTH.test(FIRST_STR)) {
-      if (value.length > 1 && IS_ONLY_NUMBER_AND_FULL_WIDTH.test(LAST_STR)) {
-        alert("半角と全角を混同しないでください。最初の文字は半角です");
-      } else {
-        setMoney(value);
-      }
-    } else if (IS_ONLY_NUMBER_AND_FULL_WIDTH.test(FIRST_STR)) {
-      if (value.length > 1 && IS_ONLY_NUMBER_AND_HALF_WIDTH.test(LAST_STR)) {
-        alert("半角と全角を混同しないでください。最初の文字は全角です");
-      } else {
-        setMoney(value);
-      }
-    }
+    // if (IS_ONLY_NUMBER_AND_HALF_WIDTH.test(FIRST_STR)) {
+    //   if (value.length > 1 && IS_ONLY_NUMBER_AND_FULL_WIDTH.test(LAST_STR)) {
+    //     alert("半角と全角を混同しないでください。最初の文字は半角です");
+    //   } else {
+    //     setMoney(value);
+    //   }
+    // } else if (IS_ONLY_NUMBER_AND_FULL_WIDTH.test(FIRST_STR)) {
+    //   if (value.length > 1 && IS_ONLY_NUMBER_AND_HALF_WIDTH.test(LAST_STR)) {
+    //     alert("半角と全角を混同しないでください。最初の文字は全角です");
+    //   } else {
+    //     setMoney(value);
+    //   }
+    // }
+    setMoney(value);
+  };
+
+  const checkUndefined = () => {
+    console.log(result);
   };
 
   const determineMoney = () => {
@@ -70,6 +75,9 @@ const App = () => {
     }
     dispatch(Actions.moneyToCharAction(passedValue));
     setIsResultShow(true);
+    setTimeout(() => {
+      checkUndefined();
+    }, 1100);
   };
 
   return (
@@ -124,7 +132,13 @@ const App = () => {
             </Grid>
           </Grid>
         </div>
-        {isResultShow && <p className="container_result-text">{result} 円</p>}
+        {isResultShow && (
+          <p className="container_result-text">
+            {result !== "undefined"
+              ? `${result} 円`
+              : "変換することができませんでした"}
+          </p>
+        )}
       </div>
     </div>
   );
