@@ -124,7 +124,13 @@ const App = () => {
             </Grid>
           </Grid>
         </div>
-        {isResultShow && <p className="container_result-text">{result} 円</p>}
+        {isResultShow && (
+          <p className="container_result-text">
+            {result !== "undefined"
+              ? `${result} 円`
+              : "変換することができませんでした"}
+          </p>
+        )}
       </div>
     </div>
   );
