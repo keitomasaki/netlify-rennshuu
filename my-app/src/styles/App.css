@@ -1,0 +1,84 @@
+.MonetizationOnOutlinedIcon {
+  font-size: 5.1875rem !important;
+}
+
+.info-Icon {
+  font-size: 3.5rem !important;
+  align-self: center;
+}
+
+.header-inner {
+  margin-top: 40px;
+}
+
+.header__title {
+  margin: 0;
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+.header__text {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 0;
+}
+
+.container {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  max-width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-info__inner {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container-info__inner__item {
+  display: flex;
+}
+
+.container-info__text {
+  margin: 0;
+  margin-left: 8px;
+  align-self: center;
+}
+
+.material-ui-button-large {
+  font-size: 3.1875rem !important;
+}
+
+.container_result-text {
+  text-align: center;
+  font-size: 2.4rem;
+}
+
+.button {
+  width: 100px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 1.5rem !important;
+}
+
+@media screen and (max-width: 768px) {
+  .header-inner {
+    margin-top: 30px;
+  }
+
+  .header__title {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+
+  .header__text {
+    margin-top: 8px;
+  }
+
+  .container-info__text {
+    font-size: 10px;
+  }
+}
