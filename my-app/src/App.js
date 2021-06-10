@@ -62,10 +62,6 @@ const App = () => {
     setMoney(value);
   };
 
-  const checkUndefined = () => {
-    console.log(result);
-  };
-
   const determineMoney = () => {
     let passedValue = "";
     if (IS_ONLY_NUMBER_AND_HALF_WIDTH.test(money)) {
@@ -75,9 +71,6 @@ const App = () => {
     }
     dispatch(Actions.moneyToCharAction(passedValue));
     setIsResultShow(true);
-    setTimeout(() => {
-      checkUndefined();
-    }, 1100);
   };
 
   return (
