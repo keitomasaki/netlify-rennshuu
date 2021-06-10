@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import createStore from "./reducks/store/store";
+import createStore from "./container/store/store";
+import "./styles/reset.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 

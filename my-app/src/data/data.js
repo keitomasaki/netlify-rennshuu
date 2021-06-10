@@ -1,25 +1,4 @@
-export const exponents = [
-  1,
-  2,
-  3,
-  4,
-  8,
-  12,
-  // 16,
-  // 20,
-  // 24,
-  // 28,
-  // 32,
-  // 36,
-  // 40,
-  // 44,
-  // 48,
-  // 52,
-  // 56,
-  // 60,
-  // 64,
-  // 68,
-];
+export const exponents = [1, 2, 3, 4, 8, 12];
 
 export const kanjiNames = [
   "十",
@@ -56,3 +35,5 @@ export const kanjiNums = [
   "八",
   "九",
 ];
+
+export const suujiList = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
