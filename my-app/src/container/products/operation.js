@@ -1,7 +1,7 @@
 import { kanjiNums, kanjiNames, exponents } from "../../data/data";
 
 export const moneyToChar = (str) => {
-  const changedStr = numbersToKanji(str);
+  let changedStr = numbersToKanji(str);
 
   function numbersToKanji(num) {
     let ret = "";
@@ -23,9 +23,12 @@ export const moneyToChar = (str) => {
         num -= top * bias;
       }
     }
-    ret += kanjiNums[num];
+    ret += `${kanjiNums[num]}`;
     return ret;
   }
 
+  if (changedStr === "undefined") {
+    changedStr = "正常に変換することができませんでした";
+  }
   return changedStr;
 };
