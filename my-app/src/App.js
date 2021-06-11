@@ -126,9 +126,9 @@ const App = () => {
         </div>
         {isResultShow && (
           <p className="container_result-text">
-            {result !== "undefined"
+            {result !== "正常に変換することができませんでした"
               ? `${result} 円`
-              : "変換することができませんでした"}
+              : result}
           </p>
         )}
       </div>
