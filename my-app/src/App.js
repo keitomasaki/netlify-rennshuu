@@ -89,13 +89,13 @@ const App = () => {
             <div className="container-info__inner__item">
               <CancelIcon className="info-Icon " />
               <p className="container-info__text">
-                数字のみ変換することができます。アルファベット、カタカナ、ひらがな等は変換できません
+                数字のみ変換することができます。アルファベット、カタカナ、ひらがな等は変換できません。
               </p>
             </div>
             <div className="container-info__inner__item">
               <PanoramaFishEyeIcon className="info-Icon " />
               <p className="container-info__text">
-                数字は全角・半角、どちらでも変換することができます
+                数字は全角・半角、どちらでも変換することができます。
               </p>
             </div>
           </div>
@@ -108,7 +108,7 @@ const App = () => {
             <Grid item>
               <TextField
                 required
-                label="金額　(数字のみ)"
+                label="金額(数字のみ)"
                 variant="outlined"
                 onChange={(e) => handleChangeMoney(e)}
                 value={money}
