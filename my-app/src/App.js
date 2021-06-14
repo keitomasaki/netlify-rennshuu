@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./styles/App.css";
 import "./styles/helper.css";
 import messages from "./config/messages";
-import { getResult } from "./container/products/selector";
+import { getResult, getText } from "./container/products/selector";
 import * as Actions from "./container/products/actions";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -25,7 +25,7 @@ const App = () => {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const result = getResult(selector); //config/products/operationのmoneyToChar関数の処理結果
-  const [money, setMoney] = useState("");
+  const text = getText(selector); //inputタグで表示する値
   const [isResultShow, setIsResultShow] = useState(false);
 
   const handleChangeMoney = (e) => {
@@ -50,23 +50,23 @@ const App = () => {
       if (value.length > 1 && IS_ONLY_NUMBER_AND_FULL_WIDTH.test(LAST_STR)) {
         alert("半角と全角を混同しないでください。最初の文字は半角です");
       } else {
-        setMoney(value);
+        dispatch(Actions.setTextAction(value));
       }
     } else if (IS_ONLY_NUMBER_AND_FULL_WIDTH.test(FIRST_STR)) {
       if (value.length > 1 && IS_ONLY_NUMBER_AND_HALF_WIDTH.test(LAST_STR)) {
         alert("半角と全角を混同しないでください。最初の文字は全角です");
       } else {
-        setMoney(value);
+        dispatch(Actions.setTextAction(value));
       }
     }
   };
 
   const determineMoney = () => {
     let passedValue = "";
-    if (IS_ONLY_NUMBER_AND_HALF_WIDTH.test(money)) {
-      passedValue = money;
-    } else if (IS_ONLY_NUMBER_AND_FULL_WIDTH.test(money)) {
-      passedValue = moji(money).convert("ZE", "HE").toString();
+    if (IS_ONLY_NUMBER_AND_HALF_WIDTH.test(text)) {
+      passedValue = text;
+    } else if (IS_ONLY_NUMBER_AND_FULL_WIDTH.test(text)) {
+      passedValue = moji(text).convert("ZE", "HE").toString();
     }
     dispatch(Actions.moneyToCharAction(passedValue));
     setIsResultShow(true);
@@ -111,7 +111,7 @@ const App = () => {
                 label="金額(数字のみ)"
                 variant="outlined"
                 onChange={(e) => handleChangeMoney(e)}
-                value={money}
+                value={text}
                 inputProps={{
                   style: { fontSize: 20 },
                 }}
